@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="icon" href="data:,">
 <title>ilham.amirat — git clone me</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>tailwind.config={theme:{extend:{fontFamily:{mono:['"JetBrains Mono"','Fira Code','ui-monospace','monospace']}}}}</script>
@@ -458,6 +459,262 @@ body{background:var(--bg);color:var(--text);}
 [data-theme="light"] #terminal-panel{border-top:1px solid #d0d7de!important;}
 [data-theme="light"] .term-header{border-bottom:1px solid #c5cdd6!important;}
 [data-theme="light"] .breadcrumb{border-bottom:1px solid #c5cdd6!important;}
+
+@media (max-width: 1024px) {
+  /* Simple version */
+  .sv-hero-inner { gap: 50px; }
+  .sv-name { font-size: 3rem; }
+  .sv-photo-ring { width: 220px; height: 220px; }
+  .sv-photo-inner { font-size: 75px; }
+  .sv-section { padding: 70px 28px; max-width: 100%; }
+  .sv-nav { padding: 0 28px; }
+  .sv-navlinks { gap: 18px; }
+  .sv-projects-grid { gap: 16px; }
+ 
+  /* Max version */
+  #sidebar { width: 200px; }
+  .welcome-infos { max-width: 100%; }
+  .welcome-name { font-size: 2rem; }
+  .welcome-avatar-inner { width: 120px; height: 120px; font-size: 60px; }
+ 
+  /* Modals */
+  .project-box { max-width: 92vw; }
+  .profile-box { max-width: 92vw; }
+  .contact-box { max-width: 92vw; }
+}
+ 
+/* ===== TABLET PORTRAIT (≤ 900px) ===== */
+@media (max-width: 900px) {
+  .sv-navlinks { gap: 12px; }
+  .sv-navlink { font-size: 12px; }
+  .sv-maxbtn { padding: 5px 10px; font-size: 10px; }
+  .sv-projects-grid { grid-template-columns: 1fr 1fr; }
+  .sv-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+}
+ 
+/* ===== MOBILE (≤ 700px) — Simple version ===== */
+@media (max-width: 700px) {
+  .sv-hero { padding: 60px 20px 40px; min-height: auto; }
+  .sv-hero-inner { flex-direction: column; gap: 32px; text-align: center; }
+  .sv-name { font-size: 2.4rem; line-height: 1.1; }
+  .sv-photo-ring { width: 180px; height: 180px; }
+  .sv-photo-inner { font-size: 60px; }
+  .sv-role { font-size: 15px; }
+  .sv-tags { justify-content: center; gap: 6px; }
+  .sv-tag { font-size: 10px; padding: 5px 11px; }
+  .sv-btns { justify-content: center; gap: 10px; }
+  .sv-btn { padding: 11px 18px; font-size: 12px; }
+  .sv-projects-grid { grid-template-columns: 1fr; gap: 14px; }
+  .sv-grid { grid-template-columns: 1fr; }
+  .sv-section { padding: 50px 18px; }
+  .sv-section-title { font-size: 1.6rem; }
+  .sv-section-label { font-size: 10px; letter-spacing: 2px; }
+  .sv-nav { padding: 0 16px; height: 52px; }
+  .sv-logo { font-size: 14px; }
+  .sv-navlinks { gap: 10px; }
+  /* Hide most nav links on mobile, keep only theme + max btn */
+  .sv-navlinks .sv-navlink { display: none; }
+  .sv-tech-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .sv-tech-item { padding: 14px 6px; }
+  .sv-tech-icon { font-size: 26px; }
+  .sv-tech-name { font-size: 10px; }
+  .sv-tech-level { font-size: 8px; }
+  .sv-contact-box { padding: 32px 20px; }
+  .sv-contact-title { font-size: 1.5rem; }
+  .sv-contact-sub { font-size: 12px; }
+  .sv-contact-link { padding: 10px 18px; font-size: 12px; }
+  .sv-card { padding: 20px; }
+  .sv-card-title { font-size: 14px; }
+  .sv-card-text { font-size: 12px; }
+  .sv-tl-item { padding: 0 0 28px 18px; }
+  .sv-tl-title { font-size: 14px; }
+  .sv-tl-sub { font-size: 11px; }
+ 
+  /* ===== MAX VERSION mobile ===== */
+  /* Titlebar */
+  .titlebar { padding: 0 8px !important; height: 36px; }
+  .titlebar .text-xs.hidden,
+  .titlebar span[class*="hidden"] { display: none !important; }
+  .version-switcher { margin-left: 4px; }
+  .version-btn { padding: 3px 8px; font-size: 9px; letter-spacing: .4px; }
+  .theme-toggle { width: 26px; height: 26px; font-size: 12px; }
+ 
+  /* Activity bar — narrower on mobile */
+  .actbar, [class~="w-11"] { width: 36px !important; }
+  .actbar button, [class~="w-11"] button { width: 30px !important; height: 30px !important; }
+ 
+  /* Sidebar — slide-in drawer on mobile */
+  #sidebar {
+    position: absolute !important;
+    z-index: 30;
+    height: calc(100% - 56px);
+    box-shadow: 4px 0 24px rgba(0,0,0,.4);
+    transition: transform .3s cubic-bezier(.4,0,.2,1);
+  }
+  #sidebar.mobile-collapsed { transform: translateX(-100%); }
+ 
+  /* Tabs */
+  #tabs-bar { height: 34px; }
+  #tabs-bar > div { min-width: 90px !important; max-width: 140px !important; padding: 0 8px !important; }
+ 
+  /* Welcome hero */
+  .welcome-hero { padding: 20px 14px; min-height: auto; }
+  .welcome-name { font-size: 1.7rem; margin-bottom: 4px; }
+  .welcome-role { font-size: 11px; letter-spacing: 1.5px; margin-bottom: 4px; }
+  .welcome-avatar-wrap { margin-bottom: 16px; }
+  .welcome-avatar-inner { width: 100px; height: 100px; font-size: 50px; border-width: 3px; }
+  .welcome-meta { gap: 5px; margin-bottom: 16px; }
+  .welcome-chip { font-size: 9px; padding: 3px 9px; }
+  .welcome-infos { grid-template-columns: 1fr; gap: 8px; max-width: 100%; margin-bottom: 16px; }
+  .welcome-info-card { padding: 11px 13px; }
+  .wic-label { font-size: 8px; }
+  .wic-value { font-size: 11px; }
+  .wic-sub { font-size: 9px; }
+  .welcome-actions { flex-direction: column; width: 100%; gap: 6px; margin-bottom: 12px; }
+  .welcome-cta { width: 100%; justify-content: center; padding: 9px 14px; font-size: 11px; }
+  .welcome-hint { font-size: 10px; padding: 0 16px; line-height: 1.6; }
+ 
+  /* Terminal — smaller on mobile */
+  #terminal-panel { height: 150px !important; }
+  #term-out, #term-input { font-size: 11px; }
+  .term-header button { font-size: 10px !important; padding: 0 10px !important; }
+ 
+  /* Statusbar */
+  .statusbar { font-size: 9px; padding: 0 8px; height: 18px; }
+  .statusbar > div { gap: 8px; }
+  #sb-progress { display: none; }
+ 
+  /* Code panes */
+  .code-table .ln { width: 36px; padding: 1px 8px 0 6px; font-size: 10px; }
+  .code-table .lc { font-size: 11px; padding: 0 12px 0 4px; }
+  .info-card { margin-left: 36px; padding: 10px 12px; max-width: calc(100% - 48px); font-size: 11px; }
+ 
+  /* Readable cards */
+  .readable-section { padding: 14px 14px 6px; }
+  .rs-grid { grid-template-columns: 1fr; gap: 8px; }
+  .rs-card { padding: 12px 13px; }
+  .rs-value { font-size: 12px; }
+  .rs-sub { font-size: 10px; }
+  .rs-hero { padding: 14px 14px 12px; gap: 12px; }
+  .rs-hero-icon { font-size: 32px; }
+  .rs-hero-title { font-size: 15px; }
+  .rs-hero-sub { font-size: 11px; }
+  .rs-list li { font-size: 11px; }
+  .rs-contact-row { padding: 8px 0; font-size: 11px; }
+  .rs-contact-row .rc-icon { width: 24px; height: 24px; font-size: 12px; }
+  .rs-contact-row .rc-label { font-size: 9px; }
+  .rs-contact-row .rc-value { font-size: 11px; }
+ 
+  /* Project modal */
+  .project-box { max-width: 100% !important; max-height: 100vh !important; margin: 0 !important; border-radius: 0 !important; height: 100vh; }
+  .project-modal-header { padding: 12px 14px; }
+  .gallery-area { height: 200px !important; }
+  .gallery-slide { padding: 12px 36px; }
+  .gallery-arrow { width: 30px; height: 30px; font-size: 14px; }
+  .gallery-arrow.left { left: 4px; }
+  .gallery-arrow.right { right: 4px; }
+  .gallery-mock { max-width: 100%; }
+  .mock-terminal { font-size: 10px; padding: 10px 12px; min-height: 140px; }
+  .mock-dashboard { min-height: 180px; }
+  .mock-dash-panel { padding: 10px 12px; }
+  .dash-metric { font-size: 18px; }
+  .dash-label { font-size: 9px; }
+  .project-info { padding: 14px 16px; }
+  .project-title { font-size: 16px; }
+  .project-subtitle { font-size: 11px; }
+  .project-desc { font-size: 11px; line-height: 1.7; margin-bottom: 12px; }
+  .project-stats { gap: 6px; margin-bottom: 12px; }
+  .project-stat { padding: 3px 8px; font-size: 10px; }
+  .project-nav { padding: 12px 14px; gap: 6px; flex-wrap: wrap; }
+  .project-nav .text-xs { width: 100%; margin-bottom: 4px; }
+  .proj-nav-btn { font-size: 9px; padding: 6px 8px; flex: 1 1 calc(50% - 3px); min-width: 0; }
+ 
+  /* Profile modal */
+  .profile-box { max-width: 100% !important; max-height: 100vh !important; margin: 0 !important; border-radius: 0 !important; height: 100vh; }
+  .profile-header { height: 75px; border-radius: 0; }
+  .profile-avatar-wrap { left: 16px; bottom: -24px; }
+  .profile-avatar-inner { width: 50px; height: 50px; font-size: 24px; }
+  .profile-body { padding: 38px 18px 20px; }
+  .profile-name { font-size: 16px; }
+  .profile-role { font-size: 11px; }
+  .profile-meta { font-size: 10px; }
+  .pf-contact-strip { padding: 10px 12px; gap: 6px; font-size: 10px; }
+  .pf-contact-strip span { font-size: 10px; }
+  .pf-projects-grid { grid-template-columns: 1fr; gap: 6px; }
+  .pf-skills-grid { grid-template-columns: 1fr; gap: 6px; }
+  .pf-section-card { padding: 10px 12px; }
+  .pf-section-card .pf-card-title strong { font-size: 11px; }
+  .pf-section-card .pf-card-title em { font-size: 9px; }
+  .pf-section-card .pf-card-sub { font-size: 10px; }
+  .pf-langs { gap: 6px; }
+  .pf-lang { padding: 6px 11px; font-size: 10px; }
+  .profile-section-title { font-size: 9px; margin-bottom: 8px; }
+  .profile-row { font-size: 10px; }
+ 
+  /* Contact modal */
+  .contact-box { max-width: 100% !important; margin: 0 !important; border-radius: 0 !important; max-height: 100vh; height: 100vh; display: flex; flex-direction: column; }
+  .contact-body { padding: 16px; flex: 1; overflow-y: auto; }
+  .contact-body > div[style*="grid-template-columns:1fr 1fr"],
+  .contact-body > div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 0 !important; }
+  .contact-header { padding: 12px 14px; }
+  .contact-field { margin-bottom: 12px; }
+  .contact-field input, .contact-field textarea, .contact-field select { font-size: 13px; padding: 10px 11px; }
+  .contact-field textarea { height: 80px; }
+  .contact-send-btn { padding: 12px; font-size: 12px; }
+  .contact-footer { font-size: 10px; padding: 10px 14px 12px; flex-wrap: wrap; }
+ 
+  /* Map modal */
+  #map-modal > div { max-width: 100% !important; max-height: 100vh !important; margin: 0 !important; border-radius: 0 !important; height: 100vh; }
+  #map-grid { grid-template-columns: 1fr !important; padding: 14px !important; gap: 8px !important; }
+  .map-card { padding: 11px !important; }
+ 
+  /* Hide some particles for performance */
+  .particle:nth-child(n+15) { display: none; }
+}
+ 
+/* ===== SMALL MOBILE (≤ 480px) ===== */
+@media (max-width: 480px) {
+  .sv-name { font-size: 2rem; }
+  .sv-photo-ring { width: 150px; height: 150px; }
+  .sv-photo-inner { font-size: 50px; }
+  .sv-greeting { font-size: 11px; letter-spacing: 2px; }
+  .sv-role { font-size: 13px; }
+  .sv-section-title { font-size: 1.4rem; }
+  .sv-tech-grid { grid-template-columns: repeat(2, 1fr); }
+  .sv-contact-box { padding: 24px 16px; }
+  .sv-contact-title { font-size: 1.3rem; }
+  .sv-contact-link { width: 100%; justify-content: center; }
+  .sv-photo-badge { font-size: 9px; padding: 4px 8px; bottom: -8px; right: -8px; }
+ 
+  .welcome-name { font-size: 1.4rem; }
+  .welcome-avatar-inner { width: 84px; height: 84px; font-size: 42px; }
+  .welcome-meta { flex-direction: column; align-items: stretch; }
+  .welcome-chip { justify-content: center; }
+ 
+  .titlebar .flex.gap-1\.5 .w-3 { width: 8px !important; height: 8px !important; }
+  .version-btn { padding: 3px 6px; font-size: 8px; }
+ 
+  /* Hide some action bar buttons on tiny screens */
+  .titlebar > div:last-child > button:first-child { display: none; }
+}
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+  #terminal-panel { height: 110px !important; }
+  .welcome-hero { padding: 14px; }
+  .welcome-avatar-wrap { margin-bottom: 10px; }
+  .welcome-avatar-inner { width: 70px; height: 70px; }
+  .welcome-name { font-size: 1.4rem; }
+  .welcome-infos { grid-template-columns: 1fr 1fr; }
+  .sv-hero { min-height: auto; padding: 30px 20px; }
+}
+@media (hover: none) and (pointer: coarse) {
+  .tree-file { padding-top: 8px; padding-bottom: 8px; }
+  .sv-navlink, .sv-btn, .welcome-cta, .sv-contact-link { min-height: 40px; }
+  button { min-height: 32px; }
+  .gallery-arrow { width: 40px !important; height: 40px !important; }
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+  .sv-photo-inner img { image-rendering: -webkit-optimize-contrast; }
+}
 </style>
 </head>
 <body class="font-mono h-full overflow-hidden select-none" style="background:var(--bg);color:var(--text)">
@@ -475,7 +732,7 @@ body{background:var(--bg);color:var(--text);}
       <button class="sv-navlink" onclick="svScroll('sv-atouts')">Atouts</button>
       <button class="sv-navlink" onclick="svScroll('sv-contact')">Contact</button>
       <button id="sv-theme-btn" class="sv-theme-toggle" onclick="toggleTheme()" title="Basculer thème clair/sombre">🌙</button>
-      <button class="sv-maxbtn" onclick="switchToMax()">⌨ Version Max</button>
+      <button class="sv-maxbtn" onclick="switchToMax()">⌨ Prestige</button>
     </div>
   </nav>
 
@@ -1001,10 +1258,10 @@ body{background:var(--bg);color:var(--text);}
     </div>
     <div class="contact-body">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-        <div class="contact-field"><label>Prénom</label><input id="cf-prenom" type="text" placeholder="Marie"/></div>
-        <div class="contact-field"><label>Nom</label><input id="cf-nom" type="text" placeholder="Dupont"/></div>
+        <div class="contact-field"><label>Prénom</label><input id="cf-prenom" type="text" placeholder="Ilham"/></div>
+        <div class="contact-field"><label>Nom</label><input id="cf-nom" type="text" placeholder="Amirat"/></div>
       </div>
-      <div class="contact-field"><label>Email</label><input id="cf-email" type="email" placeholder="marie.dupont@company.fr"/></div>
+      <div class="contact-field"><label>Email</label><input id="cf-email" type="email" placeholder="amirat_i@etna-alternance.net"/></div>
       <div class="contact-field">
         <label>Objet</label>
         <select id="cf-objet">
@@ -1840,5 +2097,6 @@ window.addEventListener('load',()=>{
   });
 });
 </script>
+ <script src="resp-loader.js"></script>
 </body>
 </html>
