@@ -52,7 +52,7 @@
     '#rl-pill.is-max .rl-dot{background:#7ee787;box-shadow:0 0 6px #7ee787}',
 
     /* Bouton "?" */
-    '#rl-help-btn{position:fixed;bottom:28px;right:170px;z-index:99999;width:36px;height:36px;border-radius:50%;cursor:pointer;font-family:"JetBrains Mono",monospace;font-size:16px;font-weight:900;border:1.5px solid transparent;background:linear-gradient(var(--bg2,#161b22),var(--bg2,#161b22)) padding-box,linear-gradient(135deg,#d2a8ff 0%,#58a6ff 50%,#7ee787 100%) border-box;color:#d2a8ff;box-shadow:0 4px 20px rgba(210,168,255,.3);transition:transform .25s,box-shadow .25s,color .2s;display:flex;align-items:center;justify-content:center;line-height:1}',
+    '#rl-help-btn{position:fixed;bottom:28px;right:130px;z-index:99999;width:36px;height:36px;border-radius:50%;cursor:pointer;font-family:"JetBrains Mono",monospace;font-size:16px;font-weight:900;border:1.5px solid transparent;background:linear-gradient(var(--bg2,#161b22),var(--bg2,#161b22)) padding-box,linear-gradient(135deg,#d2a8ff 0%,#58a6ff 50%,#7ee787 100%) border-box;color:#d2a8ff;box-shadow:0 4px 20px rgba(210,168,255,.3);transition:transform .25s,box-shadow .25s,color .2s;display:flex;align-items:center;justify-content:center;line-height:1}',
     '#rl-help-btn:hover{transform:translateY(-2px) rotate(20deg);box-shadow:0 6px 28px rgba(210,168,255,.6);color:#fff}',
     '[data-theme="light"] #rl-help-btn{background:linear-gradient(#fff,#f6f8fa) padding-box,linear-gradient(135deg,#6639ba 0%,#0969da 50%,#1a7f37 100%) border-box;color:#6639ba;box-shadow:0 4px 16px rgba(102,57,186,.2)}',
 
@@ -316,6 +316,8 @@
     window.currentVersion = 'simple';
     updatePill();
     window.scrollTo({top:0,behavior:'smooth'});
+    var helpBtn = document.getElementById('rl-help-btn');
+    if (helpBtn) helpBtn.style.display = 'none';
   }
 
   function goMax() {
@@ -347,6 +349,8 @@
     } else {
       setTimeout(addShimmerToCards, 80);
     }
+    var helpBtn = document.getElementById('rl-help-btn');
+    if (helpBtn) helpBtn.style.display = 'flex';
   }
 
   function updatePill() {
@@ -529,6 +533,8 @@
     window.switchToMax    = goMax;
     window.switchToSimple = goSimple;
     createControls();
+    var helpBtn = document.getElementById('rl-help-btn');
+    if (helpBtn) helpBtn.style.display = 'none';
     buildHelpModal();
     initCanvas();
     new MutationObserver(addShimmerToCards).observe(document.body,{childList:true,subtree:true});
